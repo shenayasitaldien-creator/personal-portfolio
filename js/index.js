@@ -1,0 +1,24 @@
+
+      const text = "about me";
+    const element = document.querySelector(".about-me");
+    element.textContent = "";
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        element.textContent += text[i];
+        i++;
+        setTimeout(type, 200);
+      }
+    }
+
+    type();
+    const aboutContent = document.querySelector(".about-content");
+    aboutContent.style.opacity = "0";
+    aboutContent.style.transform = "translateX(-60px)";
+    aboutContent.style.transition = "opacity 2s ease, transform 0.8s ease";
+
+    setTimeout(() => {
+      aboutContent.style.opacity = "1";
+      aboutContent.style.transform = "translateX(0)";
+    }, 300);
